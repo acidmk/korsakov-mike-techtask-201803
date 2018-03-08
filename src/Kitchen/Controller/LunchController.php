@@ -9,13 +9,15 @@ use Kitchen\Repository\RecipeRepository;
 
 class LunchController
 {
-    public function __construct()
-    {
+    protected $repo;
 
+    public function __construct(RecipeRepository $repo)
+    {
+        $this->repo = $repo;
     }
 
     public function get(Request $request, Application $app)
     {
-        return $app->json('test', Response::HTTP_OK);
+        return $app->json($this->repo->getRecipesForLunch(), Response::HTTP_OK);
     }
 }

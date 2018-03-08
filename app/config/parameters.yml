@@ -1,0 +1,3 @@
+parameters:
+    ingredients_json_path: '/var/data/ingredients.json'
+    recipes_json_path: '/var/data/recipes.json'

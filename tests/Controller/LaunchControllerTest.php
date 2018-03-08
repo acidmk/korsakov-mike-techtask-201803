@@ -24,7 +24,7 @@ class LaunchControllerTest extends WebTestCase
                 'application/json'
             )
         );
-        $this->assertContains('test', $client->getResponse()->getContent());
+        $this->assertContains('Hotdog', $client->getResponse()->getContent());
     }
 
     public function createApplication()
