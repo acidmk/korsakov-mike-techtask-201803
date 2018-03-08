@@ -16,6 +16,13 @@ class Recipe
         $this->ingredients = $ingredients;
     }
 
+    public function toArray()
+    {
+        return array(
+            'title' => $this->title,
+            'ingredients' => $this->ingredients);
+    }
+
     public function getTitle() 
     {
         return $this->title;

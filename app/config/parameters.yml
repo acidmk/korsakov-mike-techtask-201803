@@ -1,3 +1,12 @@
 parameters:
+    # Consumer Key (API Key)
+    twitter_key: ''
+    # Consumer Secret (API Secret)
+    twitter_key_secret: ''
+    # Access Token
+    twitter_token: ''
+    # Access Token Secret
+    twitter_token_secret: ''
+
     ingredients_json_path: '/var/data/ingredients.json'
     recipes_json_path: '/var/data/recipes.json'

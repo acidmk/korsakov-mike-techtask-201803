@@ -4,8 +4,50 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "db388c5221c0a77a87839df685514f2e",
+    "content-hash": "c5c568311c2dbf6dd4e6dee9f950c7d8",
     "packages": [
+        {
+            "name": "dg/twitter-php",
+            "version": "v3.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dg/twitter-php.git",
+                "reference": "dd872ad12121ff919b358989e61f7f08ba6cc7a8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dg/twitter-php/zipball/dd872ad12121ff919b358989e61f7f08ba6cc7a8",
+                "reference": "dd872ad12121ff919b358989e61f7f08ba6cc7a8",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                }
+            ],
+            "description": "Small and easy Twitter library for PHP",
+            "homepage": "https://github.com/dg/twitter-php",
+            "keywords": [
+                "oauth",
+                "twitter"
+            ],
+            "time": "2016-08-15T16:46:22+00:00"
+        },
         {
             "name": "paragonie/random_compat",
             "version": "v2.0.11",
@@ -345,6 +387,75 @@
             "description": "Symfony BrowserKit Component",
             "homepage": "https://symfony.com",
             "time": "2018-01-03T07:38:00+00:00"
+        },
+        {
+            "name": "symfony/console",
+            "version": "v3.4.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/console.git",
+                "reference": "067339e9b8ec30d5f19f5950208893ff026b94f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/console/zipball/067339e9b8ec30d5f19f5950208893ff026b94f7",
+                "reference": "067339e9b8ec30d5f19f5950208893ff026b94f7",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8",
+                "symfony/debug": "~2.8|~3.0|~4.0",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "conflict": {
+                "symfony/dependency-injection": "<3.4",
+                "symfony/process": "<3.3"
+            },
+            "require-dev": {
+                "psr/log": "~1.0",
+                "symfony/config": "~3.3|~4.0",
+                "symfony/dependency-injection": "~3.4|~4.0",
+                "symfony/event-dispatcher": "~2.8|~3.0|~4.0",
+                "symfony/lock": "~3.4|~4.0",
+                "symfony/process": "~3.3|~4.0"
+            },
+            "suggest": {
+                "psr/log": "For using the console logger",
+                "symfony/event-dispatcher": "",
+                "symfony/lock": "",
+                "symfony/process": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Console\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Console Component",
+            "homepage": "https://symfony.com",
+            "time": "2018-02-26T15:46:28+00:00"
         },
         {
             "name": "symfony/css-selector",
