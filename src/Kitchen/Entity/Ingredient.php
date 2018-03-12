@@ -17,6 +17,14 @@ class Ingredient
         $this->useBy = new \DateTime($useBy);
     }
 
+    public function toArray()
+    {
+        return array(
+            'title' => $this->title,
+            'best-before' => $this->bestBefore->format('Y-m-d'),
+            'use-by' => $this->useBy->format('Y-m-d'));
+    }
+
     public function getStorageStatus()
     {
         $now = new \DateTime();
