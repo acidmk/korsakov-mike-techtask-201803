@@ -9,7 +9,7 @@ use Kitchen\Model\RecipeIngredientsStatus;
 
 class RecipeRepository
 {
-    private $recipeEntities = array();
+    private $recipeEntities = [];
     private $ingredientsRepo;
 
     public function __construct($repo)
@@ -29,44 +29,24 @@ class RecipeRepository
 
     public function loadRecipes($data)
     {
-        $recipeEntities = array();
+        $recipeEntities = [];
 
         foreach ($data as $recipe) {
             $this->recipeEntities[$recipe['title']] = new Recipe($recipe['title'], $recipe['ingredients']);
         }
     }
 
-    function getRecipeIngredientsStatus($key)
+    public function findRecipeByKey($key)
     {
-        $recipe = $this->recipeEntities[$key];
-        $ingredients = $recipe->getIngredients();
-        $partlyFresh = false;
-
-        foreach ($ingredients as $ingredient) {
-            $entity = $this->ingredientsRepo->findIngredientByKey($ingredient);
-            if (is_null($entity)) {
-                return RecipeIngredientsStatus::MISSING_OR_OVERDUE;
-            }
-
-            $status = $entity->getStorageStatus();
-
-            if ($status == IngredientStatus::NOT_FRESH) {
-                $partlyFresh = true;
-            }
-            if ($status == IngredientStatus::OVERDUE) {
-                return RecipeIngredientsStatus::MISSING_OR_OVERDUE;
-            }
-        }
-
-        return $partlyFresh ? RecipeIngredientsStatus::PARTLY_FRESH : RecipeIngredientsStatus::ALL_FRESH;
+        return array_key_exists($key, $this->recipeEntities) ? $this->recipeEntities[$key] : null;
     }
 
     public function getRecipesForLunch()
     {
-        $recipes = array();
+        $recipes = [];
 
         foreach ($this->recipeEntities as $recipe) {
-            $status = $this->getRecipeIngredientsStatus($recipe->getTitle());
+            $status = $recipe->getIngredientsStatus($this->ingredientsRepo);
 
             if ($status == RecipeIngredientsStatus::ALL_FRESH) {
                 array_unshift($recipes, $recipe->toArray());

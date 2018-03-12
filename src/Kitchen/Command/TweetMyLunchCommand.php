@@ -12,11 +12,10 @@ $console
         $output->writeln('<info>Hold on... Tweeting now!</info>');
 
         $recipes = $app['recipe.repository']->getRecipesForLunch();
-        $results = array();
+        $results = [];
 
         foreach ($recipes as $recipe) {
             $results[] = $recipe['title'];
-            $output->writeln($recipe['title']);
         }
 
         $text = "We are having " . implode(", ", $results) . " for today's lunch!";

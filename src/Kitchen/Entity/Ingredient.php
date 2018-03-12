@@ -19,10 +19,11 @@ class Ingredient
 
     public function toArray()
     {
-        return array(
+        return [
             'title' => $this->title,
             'best-before' => $this->bestBefore->format('Y-m-d'),
-            'use-by' => $this->useBy->format('Y-m-d'));
+            'use-by' => $this->useBy->format('Y-m-d')
+        ];
     }
 
     public function getStorageStatus()

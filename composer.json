@@ -9,7 +9,8 @@
     },
     "autoload": {
         "psr-0": {
-            "": "src/"
+            "": "src/",
+            "Test": "test/"
         }
     },
     "require-dev": {

@@ -6,7 +6,7 @@ use Kitchen\Entity\Ingredient;
 
 class IngredientRepository
 {
-    private $ingredientEntities = array();
+    private $ingredientEntities = [];
 
     public static function fromJson($path) {
         $instance = new self();
@@ -17,16 +17,17 @@ class IngredientRepository
         return $instance;
     }
 
-    public function loadIngredients($data)
+    public function loadIngredients($ingredients)
     {
-        $this->ingredientEntities = array();
+        $this->ingredientEntities = [];
 
-        foreach ($data as $ingredient) {
-            $this->ingredientEntities[$ingredient['title']] = 
+        foreach ($ingredients as $ingredient) {
+            $this->ingredientEntities[$ingredient['title']] =
                 new Ingredient(
-                    $ingredient['title'], 
-                    $ingredient['best-before'], 
-                    $ingredient['use-by']);
+                    $ingredient['title'],
+                    $ingredient['best-before'],
+                    $ingredient['use-by']
+                );
         }
     }
 
@@ -34,5 +35,4 @@ class IngredientRepository
     {
         return array_key_exists($key, $this->ingredientEntities) ? $this->ingredientEntities[$key] : null;
     }
-
 }
